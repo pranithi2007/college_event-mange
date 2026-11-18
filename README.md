@@ -36,6 +36,19 @@ college-event-management/
 - Node.js 18+
 - MongoDB running locally on port 27017
 
+### Deploy the backend to Render
+
+The Render Blueprint in [`render.yaml`](render.yaml) sets the backend root
+directory to `backend`, where its `package.json` is located. To fix an existing
+service that reports `ENOENT: ... /src/package.json`, open **Settings** and set:
+
+- **Root Directory:** `backend`
+- **Build Command:** `npm install`
+- **Start Command:** `npm start`
+
+Set `MONGO_URI` to your MongoDB connection string and `CLIENT_URL` to your
+deployed frontend URL in the Render environment. Keep `JWT_SECRET` private.
+
 ### 1. Backend
 
 ```powershell
